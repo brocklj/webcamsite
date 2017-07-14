@@ -13,3 +13,7 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+
+function errorimg_swap() {
+    document.getElementById('livestream').src = ""
+}
