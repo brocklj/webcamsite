@@ -3,9 +3,9 @@
 <img id="livestream" src="http://10.0.0.140:8081/" alt="http://10.0.0.140:8081/" onerror="errorimg_swap()">
 
 <% @images.each_with_index do |image, i|%>
-<%# image_tag("sdsdsds", :alt =>image)%>
+
 <img src ="<%= image_url(image.gsub("app/assets/images/webcam/", "webcam/")) %>">
-<% if i >= 9
+<% if i >= 20
    break
    end%>
 <% end %>
