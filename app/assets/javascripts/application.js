@@ -18,3 +18,8 @@ function errorimg_swap() {
     document.getElementById('livestream').src = "http://90.179.18.233:999"
     document.getElementById('livestream').alt = "http://90.179.18.233:999"
 }
+
+function recorded_play(file) {
+    document.getElementById(file).style = "visibility: show"
+
+}
