@@ -2,7 +2,7 @@
 <p>Find me in app/views/home/welcome.html.erb</p>
 <img id="livestream" src="http://10.0.0.140:8081/" alt="http://10.0.0.140:8081/" onerror="errorimg_swap()" style="float: none; display: block">
 
-
+<!--
   <% @videos.each_with_index do |video, i| %>
     <div class="shoot">
       <video autoplay loop style="visibility: visible; " id="<%= video.gsub("app/assets/images/webcam/", "") %>">
@@ -14,7 +14,7 @@
     </div>
 
 <% end %>
-<!--
+-->
   <% @images.each_with_index do |image, i| %>
 
       <img src="<%= image_url(image.gsub("app/assets/images/webcam/", "webcam/")) %>" onmouseover="recorded_play(<%= image.gsub("app/assets/images/webcam/", "") %>)">
@@ -22,4 +22,4 @@
            break
          end %>
   <% end %>
--->
+
