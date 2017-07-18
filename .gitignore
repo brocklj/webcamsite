@@ -16,6 +16,7 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+/app/assets/app/assets/images/webcam/
 
 /node_modules
 /yarn-error.log

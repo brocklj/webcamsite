@@ -5,7 +5,7 @@
 <% @images.each_with_index do |image, i|%>
 
 <img src ="<%= image_url(image.gsub("app/assets/images/webcam/", "webcam/")) %>">
-<% if i >= 20
+<% if i >= 50 
    break
    end%>
 <% end %>
