@@ -18,3 +18,10 @@
     position: relative;
     float: left;
 }
+
+body {
+    margin: 0 auto 0 auto;
+    text-align: center;
+    width: 40em;
+
+}
