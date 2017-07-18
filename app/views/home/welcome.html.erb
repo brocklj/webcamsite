@@ -1,12 +1,12 @@
 <h1>Home#welcome</h1>
 <p>Find me in app/views/home/welcome.html.erb</p>
-<img id="livestream" src="http://10.0.0.140:8081/" alt="http://10.0.0.140:8081/" onerror="errorimg_swap()">
+<img id="livestream" src="http://10.0.0.140:8081/" alt="http://10.0.0.140:8081/" onerror="errorimg_swap()" style="float: none; display: block">
 
 
   <% @videos.each_with_index do |video, i| %>
     <div class="shoot">
-      <video autoplay loop style="visibility: visible; position: absolute;" id="<%= video.gsub("app/assets/images/webcam/", "") %>">
-        <source src="<%= image_url(video.gsub("app/assets/images/webcam/", "webcam/")) %>" type="video/mp4">
+      <video autoplay loop style="visibility: visible; " id="<%= video.gsub("app/assets/images/webcam/", "") %>">
+        <source src="<%= image_url(video.gsub("app/assets/images/webcam/", "webcam/")) %>" type="video/ogg">
         </video>
         <% if i >= 50
              break

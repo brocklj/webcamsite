@@ -16,4 +16,5 @@
 
 .shoot {
     position: relative;
+    float: left;
 }
