@@ -1,0 +1,15 @@
+<%= link_to "<< Previous", {:controller => "home", :action => "welcome", :imgpage => (@current_page - 1 if @current_page > 0) }, :method => :get %>
+<% count = @images.count
+   pages_count = count / @per_page
+   pages_count.times do |i|
+     if @current_page == i %>
+        <%= i %>
+    <% next
+       end %>
+
+    <%= link_to i, {:controller => "home", :action => "welcome", :imgpage => i}, :method => :get %>
+
+
+<% end %>
+
+<%= link_to "Next >>", {:controller => "home", :action => "welcome", :imgpage => (@current_page + 1 if @current_page < pages_count) }, :method => :get %>

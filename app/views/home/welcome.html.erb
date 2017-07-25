@@ -1,25 +1,29 @@
-<h1>Home#welcome</h1>
-<p>Find me in app/views/home/welcome.html.erb</p>
-<img id="livestream" src="http://10.0.0.140:8081/" alt="http://10.0.0.140:8081/" onerror="errorimg_swap()" style="float: none; display: block">
+<div class="content">
+  <img id="livestream" src="http://10.0.0.140:8081/" alt="http://10.0.0.140:8081/" onerror="errorimg_swap()">
+</div>
+  <!--
+    <% @videos.each_with_index do |video, i| %>
+      <div class="shoot">
+        <video autoplay loop style="visibility: visible; " id="<%= video.gsub("app/assets/images/webcam/", "") %>">
+          <source src="<%= image_url(video.gsub("app/assets/images/webcam/", "webcam/")) %>" type="video/ogg">
+          </video>
+          <% if i >= @per_page
+               break
+             end %>
+      </div>
 
-<!--
-  <% @videos.each_with_index do |video, i| %>
-    <div class="shoot">
-      <video autoplay loop style="visibility: visible; " id="<%= video.gsub("app/assets/images/webcam/", "") %>">
-        <source src="<%= image_url(video.gsub("app/assets/images/webcam/", "webcam/")) %>" type="video/ogg">
-        </video>
-        <% if i >= 50
-             break
-           end %>
-    </div>
-
-<% end %>
--->
-  <% @images.each_with_index do |image, i| %>
-
-      <img src="<%= image_url(image.gsub("app/assets/images/webcam/", "webcam/")) %>" onmouseover="recorded_play(<%= image.gsub("app/assets/images/webcam/", "") %>)">
-      <% if i >= 50
-           break
-         end %>
   <% end %>
+  -->
 
+    <% post_page = 0
+      @images.drop(@current_page*@per_page).each_with_index do |image, i|
+      post_page += 1%>
+        <img src="<%= image_url(image.gsub("app/assets/images/webcam/", "webcam/")) %>" onmouseover="recorded_play(<%= image.gsub("app/assets/images/webcam/", "") %>)">
+        <% if post_page >= @per_page
+             break
+           end
+           end
+        %>
+<div class="pangination">
+  <%= render "home/pangionation" %>
+</div>

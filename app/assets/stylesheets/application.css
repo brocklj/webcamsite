@@ -22,6 +22,16 @@
 body {
     margin: 0 auto 0 auto;
     text-align: center;
-    width: 40em;
+    width: 100%;
+}
+.content {
+    text-align: center;
+}
 
+#livestream {
+
+}
+
+.pangination {
+    float: none;
 }
