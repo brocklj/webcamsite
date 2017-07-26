@@ -1,22 +1,27 @@
+<%   @start_date = @start_date.tr("-", "") %>
 <div class="content">
+
   <img id="livestream" src="http://10.0.0.140:8081/" alt="http://10.0.0.140:8081/" onerror="errorimg_swap()">
-</div>
-  <!--
-    <% @videos.each_with_index do |video, i| %>
-      <div class="shoot">
-        <video autoplay loop style="visibility: visible; " id="<%= video.gsub("app/assets/images/webcam/", "") %>">
-          <source src="<%= image_url(video.gsub("app/assets/images/webcam/", "webcam/")) %>" type="video/ogg">
-          </video>
-          <% if i >= @per_page
-               break
-             end %>
-      </div>
 
-  <% end %>
-  -->
+  <div class="filters">
+    <form action="/"> <input name="perpage" type="number" value="" onchange="this.form.submit()" placeholder="Items per page: <%= cookies[:per_page] %>" ></form>
+      <form action="/">
+      <input name="date"  type="month" value="<%= cookies[:date] %>" onchange="this.form.submit()" placeholder="Start date:" ><input type="submit" value="Filter">
+    </form>
+  </div>
 
-    <% post_page = 0
-      @images.drop(@current_page*@per_page).each_with_index do |image, i|
+  </div>
+<%=
+
+  startindex = @images.find_index(@start_date).to_i
+
+   %>
+    <%
+      post_page = 0
+      @start_date.tr("-", "")
+     startindex = @images.find_index(@start_date).to_i
+
+      @images.drop(@current_page*@per_page+startindex).each_with_index do |image, i|
       post_page += 1%>
         <img src="<%= image_url(image.gsub("app/assets/images/webcam/", "webcam/")) %>" onmouseover="recorded_play(<%= image.gsub("app/assets/images/webcam/", "") %>)">
         <% if post_page >= @per_page

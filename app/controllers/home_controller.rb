@@ -4,7 +4,15 @@ class HomeController < ApplicationController
     @images = @images.reverse!
     @videos = (Dir.glob("app/assets/images/webcam/*.ogg")).sort!
     @video = @videos.reverse!
+
+    #start date from which images should start from
+    @start_date = params[:date] != nil ? params[:date] : Date.today().to_s
+    cookies[:date] = params[:date] if cookies[:date] != params[:date] && params[:date] != nil
+
+    #------start date end
+
     @current_page = params[:imgpage].to_i == nil ? 0 : params[:imgpage].to_i
-    @per_page = 6
+    cookies[:per_page] = params[:perpage] if cookies[:per_page] != params[:perpage] && params[:perpage] != nil
+    @per_page = cookies[:per_page] != nil ? cookies[:per_page].to_i : 4
   end
 end

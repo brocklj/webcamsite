@@ -35,3 +35,14 @@ body {
 .pangination {
     float: none;
 }
+
+.filters {
+    float: none;
+   height: 100px;
+
+}
+
+.filters form {
+    float: none;
+
+}

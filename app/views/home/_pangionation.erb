@@ -1,6 +1,7 @@
+
 <%= link_to "<< Previous", {:controller => "home", :action => "welcome", :imgpage => (@current_page - 1 if @current_page > 0) }, :method => :get %>
 <% count = @images.count
-   pages_count = count / @per_page
+   pages_count = (count / @per_page.to_f).ceil
    pages_count.times do |i|
      if @current_page == i %>
         <%= i %>
@@ -12,4 +13,4 @@
 
 <% end %>
 
-<%= link_to "Next >>", {:controller => "home", :action => "welcome", :imgpage => (@current_page + 1 if @current_page < pages_count) }, :method => :get %>
+<%= link_to "Next >>", {:controller => "home", :action => "welcome", :imgpage => (@current_page + 1) }, :method => :get if @current_page < pages_count-1 %>
