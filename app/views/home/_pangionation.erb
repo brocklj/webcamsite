@@ -1,16 +1,26 @@
+<nav aria-label="Page navigation" class="">
+  <ul class="pagination">
+    <li>
+      <%= link_to "<< Previous", {:controller => "home", :action => "welcome", :imgpage => (@current_page - 1 if @current_page > 0)}, :method => :get %>
 
-<%= link_to "<< Previous", {:controller => "home", :action => "welcome", :imgpage => (@current_page - 1 if @current_page > 0) }, :method => :get %>
-<% count = @images.count
-   pages_count = (count / @per_page.to_f).ceil
-   pages_count.times do |i|
-     if @current_page == i %>
-        <%= i %>
-    <% next
-       end %>
+    </li>
+    <% count = @images.count
+       pages_count = (count / @per_page.to_f).ceil
+       pages_count.times do |i| %>
 
-    <%= link_to i, {:controller => "home", :action => "welcome", :imgpage => i}, :method => :get %>
+        <% if @current_page == i %>
+            <li class="active"><a href="#" >
+            <%= i+1 %>
+              </a></li>
+        <% next
+           end %>
+        <li>
+        <%= link_to i+1, {:controller => "home", :action => "welcome", :imgpage => i}, :method => :get %>
+        </li>
 
-
-<% end %>
-
-<%= link_to "Next >>", {:controller => "home", :action => "welcome", :imgpage => (@current_page + 1) }, :method => :get if @current_page < pages_count-1 %>
+    <% end %>
+    <li>
+    <%= link_to "Next >>", {:controller => "home", :action => "welcome", :imgpage => (@current_page + 1)}, :method => :get if @current_page < pages_count-1 %>
+    </li>
+  </ul>
+</nav>

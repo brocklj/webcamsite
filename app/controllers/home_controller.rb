@@ -12,7 +12,7 @@ class HomeController < ApplicationController
     #------start date end
 
     @current_page = params[:imgpage].to_i == nil ? 0 : params[:imgpage].to_i
-    cookies[:per_page] = params[:perpage] if cookies[:per_page] != params[:perpage] && params[:perpage] != nil
+    cookies[:per_page] = params[:perpage] if cookies[:per_page] != params[:perpage] && params[:perpage] != nil && params[:perpage]  != "0"
     @per_page = cookies[:per_page] != nil ? cookies[:per_page].to_i : 4
   end
 end
