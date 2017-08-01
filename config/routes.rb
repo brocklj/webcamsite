@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'home/welcome'
+  get 'home/get_images'
 
   root 'home#welcome'
   match '/welcome' => "home#welcome", via: :pages

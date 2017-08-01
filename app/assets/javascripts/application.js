@@ -10,6 +10,7 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //= require jquery
+//= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
 
@@ -18,7 +19,3 @@ function errorimg_swap() {
     document.getElementById('livestream').alt = "http://90.179.18.233:999"
 }
 
-function recorded_play(file) {
-    document.getElementById(file).style = "visibility: show"
-
-}

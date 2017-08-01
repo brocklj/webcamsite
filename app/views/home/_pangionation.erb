@@ -1,14 +1,14 @@
 <nav aria-label="Page navigation" class="">
-  <ul class="pagination">
-    <li>
-      <%= link_to "<< Previous", {:controller => "home", :action => "welcome", :imgpage => (@current_page - 1 if @current_page > 0)}, :method => :get %>
-
-    </li>
+  <ul class="pagination pagination-lg">
     <% count = @images.count
        pages_count = (count / @per_page.to_f).ceil
-       pages_count.times do |i| %>
+       %>
+    <li>
+      <%= link_to "<< Previous", {:controller => "home", :action => "welcome", :imgpage => (@current_page - 1 if @current_page > 0)}, :method => :get if (pages_count > 1 and @current_page !=0) %>
 
-        <% if @current_page == i %>
+    </li>
+        <% pages_count.times do |i|
+          if @current_page == i %>
             <li class="active"><a href="#" >
             <%= i+1 %>
               </a></li>

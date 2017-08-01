@@ -14,7 +14,9 @@
  *= require_self
  */
 
-
+body {
+    padding-top: 70px;
+}
 .shoot {
     position: relative;
     float: left;
@@ -39,12 +41,9 @@ body {
 
 .filters {
     float: none;
-   height: 100px;
+
 
 }
 
-.filters form {
-    float: none;
 
-}
 
