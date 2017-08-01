@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'home/welcome'
+  post 'home/welcome'
   get 'home/get_images'
 
   root 'home#welcome'

@@ -12,6 +12,8 @@
 //= require jquery
 //= require twitter/bootstrap
 //= require turbolinks
+//= require moment
+//= require bootstrap-datetimepicker
 //= require_tree .
 
 function errorimg_swap() {

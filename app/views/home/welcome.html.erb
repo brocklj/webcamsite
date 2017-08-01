@@ -17,7 +17,8 @@
         <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
 
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown
+            <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#">Action</a></li>
             <li><a href="#">Another action</a></li>
@@ -38,7 +39,8 @@
       <ul class="nav navbar-nav navbar-right">
 
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown
+            <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#">Action</a></li>
             <li><a href="#">Another action</a></li>
@@ -55,34 +57,63 @@
   <div class="content">
     <div class="row">
 
-    <div class="col">
-      <div class="thumbnail" style="border: none">
-        <img id="livestream" src="http://10.0.0.140:8081/" alt="http://10.0.0.140:8081/" onerror="errorimg_swap()">
-      </div>
-    <div class="filters">
-      <form action="/" class="form-inline">
-        <div class="form-group">
-          <label class="sr-only">Images per page</label>
-        <input name="perpage" class="form-control" type="number" value="" placeholder="Items per page: <%= cookies[:per_page] %>">
+      <div class="col">
+        <div class="thumbnail" style="border: none">
+          <img id="livestream" src="http://10.0.0.140:8081/" alt="http://10.0.0.140:8081/" onerror="errorimg_swap()">
         </div>
-        <button type="submit" class="btn btn-primary">show</button>
-      </form>
-    </div>
+        <div class="filters">
+          <div id="temp"></div>
+          <form action="/" class="form-inline" method="get">
+          <div class="container">
+            <div class='col-sm-4'>
+              <div class="form-group">
+                <div class='input-group date' id='datetimepicker6'>
+                  <input type='text' class="form-control" name="from_date"/>
+                  <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+                </div>
+              </div>
+            </div>
+            <div class='col-sm-4'>
+              <div class="form-group">
+                <div class='input-group date' id='datetimepicker7'>
+                  <input type='text' class="form-control" name="to_date"/>
+                  <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+                </div>
+              </div>
+            </div>
+            <!-- PER PAGE FORM -->
+            <div class='col-sm-4'>
+
+                <div class="form-group">
+                  <label class="sr-only">Images per page</label>
+                  <input name="perpage" class="form-control" type="number" value="" placeholder="Items per page: <%= cookies[:per_page] %>">
+                </div>
+                <button type="submit" class="btn btn-primary">show</button>
+
+            </div>
+            <!--/end/ PER PAGE FORM -->
+          </div>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
-  </div>
-<hr>
+  <hr>
   <div class="row">
     <%
       post_page = 0
       @images.drop(@current_page*@per_page).each_with_index do |image, i|
         post_page += 1 %>
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-          <div class="thumbnail">
+          <div class="thumbnail img_stored">
             <div class="caption">
               <small><%= image.gsub("app/assets/images/webcam/", "") %></small>
             </div>
-            <img src="<%= image_url(image.gsub("app/assets/images/webcam/", "webcam/")) %>">
+            <img src="<%= image_url("webcam/"+image) %>">
 
           </div>
         </div>
@@ -91,7 +122,6 @@
        end
        end
     %>
-
   </div>
 </div>
 <div class="pangination navbar-static-bottom">
