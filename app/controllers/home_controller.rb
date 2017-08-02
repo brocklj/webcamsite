@@ -3,10 +3,10 @@ class HomeController < ApplicationController
   @@images_dir = (Dir.glob("app/assets/images/webcam/*.jpg"))
   def welcome
 
-    cookies[:from_date] = params[:from_date] if params[:from_date] != cookies[:from_date] && params[:from_date] != nil && params[:from_date] != ""
-    cookies[:to_date] = params[:to_date] if params[:to_date] != cookies[:to_date] && params[:to_date] != nil && params[:to_date] != ""
+    cookies[:from_date] = params[:from_date] if params[:from_date] != cookies[:from_date] && params[:from_date] != nil && params[:from_date] != "" && params[:from_date] != cookies[:from_date]
+    cookies[:to_date] = params[:to_date] if params[:to_date] != cookies[:to_date] && params[:to_date] != nil && params[:to_date] != "" && params[:to_date] != cookies[:to_date]
 
-    from_date = params[:from_date].to_s == "" && cookies[:from_date].to_s == ""? Date.today() -14 : cookies[:from_date].to_date
+    from_date = params[:from_date].to_s == "" && cookies[:from_date].to_s == ""? Date.today() - 14 : cookies[:from_date].to_date
     to_date = params[:to_date].to_s == "" && cookies[:to_date].to_s == "" ? Date.today() :  cookies[:to_date].to_date
 
     @images_hash = get_files_date_hash(@@images_dir)

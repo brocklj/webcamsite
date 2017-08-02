@@ -1,0 +1,35 @@
+/**
+ * Created by jakub on 1.8.17.
+ */
+var dateToDef = Date.now();
+var dateFromDef = new Date(dateToDef);
+ dateFromDef = new Date(dateFromDef.setDate(dateFromDef.getDate()-12));
+  $(document).ready(function () {
+    var datePicker1 = $('#datetimepicker6').datetimepicker({
+            format: 'YYYY-MM-DD',
+            defaultDate: dateFromDef
+        });
+    var datePicker2 =  $('#datetimepicker7').datetimepicker({
+            useCurrent: false, //Important! See issue #107
+            format: 'YYYY-MM-DD',
+            defaultDate: dateToDef
+        });
+        $("#datetimepicker6").on("dp.change", function (e) {
+            $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+        });
+        $("#datetimepicker7").on("dp.change", function (e) {
+            $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+        });
+     $("#reset_btn").on('click', function () {
+       $('#datetimepicker6').data("DateTimePicker").date(new Date(dateFromDef));
+       $('#datetimepicker7').data("DateTimePicker").date(new Date(dateToDef));
+
+
+
+       //$("#from_date").val(dateFromDef.getFullYear()+'-'+dateFromDef.getMonth()+'-'+dateFromDef.getDay());
+       //$("#to_date").val(dateToDef.getFullYear()+'-'+dateToDef.getMonth()+'-'+dateToDef.getDay());
+
+
+
+     });
+    });

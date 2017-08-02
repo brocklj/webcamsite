@@ -28,4 +28,9 @@ module HomeHelper
     end
     return images_processed.reverse!
   end
-end
+
+  def get_mtime(file)
+    time = File.mtime(file).to_formatted_s(:db)
+  end
+
+  end
