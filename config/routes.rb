@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'home/welcome'
   post 'home/welcome'
   get 'home/get_images'
+  resources :home
 
   root 'home#welcome'
   match '/welcome' => "home#welcome", via: :pages

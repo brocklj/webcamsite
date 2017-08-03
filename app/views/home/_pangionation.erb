@@ -4,7 +4,7 @@
        pages_count = (count / @per_page.to_f).ceil
        %>
     <li>
-      <%= link_to "<< Previous", {:controller => "home", :action => "welcome", :imgpage => (@current_page - 1 if @current_page > 0)}, :method => :get if (pages_count > 1 and @current_page !=0) %>
+      <%= link_to "<< Previous", {:controller => "home", :action => "welcome", :imgpage => (@current_page - 1 if @current_page > 0)}, data: { turbolinks: false}, :method => :get if (pages_count > 1 and @current_page !=0) %>
 
     </li>
         <% pages_count.times do |i|
@@ -15,12 +15,12 @@
         <% next
            end %>
         <li>
-        <%= link_to i+1, {:controller => "home", :action => "welcome", :imgpage => i}, :method => :get %>
+        <%= link_to i+1, { :imgpage => i}, :method => :get, data: { turbolinks: false} %>
         </li>
 
     <% end %>
     <li>
-    <%= link_to "Next >>", {:controller => "home", :action => "welcome", :imgpage => (@current_page + 1)}, :method => :get if @current_page < pages_count-1 %>
+    <%= link_to "Next >>", {:controller => "home", :action => "welcome", :imgpage => (@current_page + 1)}, data: { turbolinks: false}, :method => :get if @current_page < pages_count-1 %>
     </li>
   </ul>
 </nav>
