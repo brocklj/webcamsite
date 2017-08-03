@@ -6,7 +6,7 @@ class HomeController < ApplicationController
     cookies[:from_date] = params[:from_date] if params[:from_date] != cookies[:from_date] && params[:from_date] != nil && params[:from_date] != "" && params[:from_date] != cookies[:from_date]
     cookies[:to_date] = params[:to_date] if params[:to_date] != cookies[:to_date] && params[:to_date] != nil && params[:to_date] != "" && params[:to_date] != cookies[:to_date]
 
-    from_date = params[:from_date].to_s == "" && cookies[:from_date].to_s == ""? Date.today() - 14 : cookies[:from_date].to_date
+    from_date = params[:from_date].to_s == "" && cookies[:from_date].to_s == ""? Date.today() - 7 : cookies[:from_date].to_date
     to_date = params[:to_date].to_s == "" && cookies[:to_date].to_s == "" ? Date.today() :  cookies[:to_date].to_date
 
     @images_hash = get_files_date_hash(@@images_dir)
@@ -18,18 +18,4 @@ class HomeController < ApplicationController
 
   end
 
-  def get_images
-
-    @images = @@images
-    @images_urls = []
-      post_page = 0
-    @images.drop(params[:current_page].to_i*params[:per_page].to_i).each_with_index do |image, i|
-      post_page += 1
-
-      @images_urls << image.gsub("app/assets/images/webcam/", "webcam/")
-
-
-    end
-
-  end
 end

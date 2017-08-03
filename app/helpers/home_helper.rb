@@ -26,9 +26,11 @@ module HomeHelper
         end
       end
     end
-    return images_processed.reverse!
+    images_processed = images_processed.sort!.reverse!
+    return images_processed
   end
 
+  # function to get modification date and time of file in the parameter
   def get_mtime(file)
     time = File.mtime(file).to_formatted_s(:db)
   end

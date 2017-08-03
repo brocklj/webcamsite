@@ -1,5 +1,5 @@
 <nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container">
+  <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -63,40 +63,61 @@
         </div>
         <div class="filters">
           <div id="temp"></div>
-          <form action="/" class="form-inline" method="get">
-          <div class="container">
-            <div class='col-sm-8'>
-              <div class="form-group">
-                <div class='input-group date' id='datetimepicker6'>
-                  <input type='text' class="form-control" name="from_date" id="from_date" value="<%= cookies[:from_date] %>"/>
-                  <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
-                </span>
-                </div>
-              </div>
+          <form action="/" class="form-md-inline" method="get">
+            <div class="container">
+              <div class="row">
 
-              <div class="form-group">
-                <div class='input-group date' id='datetimepicker7'>
-                  <input type='text' class="form-control" name="to_date" id="to_date"  value="<%= cookies[:to_date] %>"/>
-                  <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
-                </span>
-                </div>
-              </div>
-            </div>
-            <!-- PER PAGE FORM -->
-            <div class='col-sm-4'>
-
+                <div class='col-md-4 col-sm-12'>
                 <div class="form-group">
-                  <label class="sr-only">Images per page</label>
-                  <input name="perpage" class="form-control" type="number" value="" placeholder="Items per page: <%= cookies[:per_page] %>">
+                  <div class='input-group date' id='datetimepicker6'>
+                    <span class="input-group-addon">From</span>
+                    <input type='text' class="form-control" name="from_date" id="from_date" value="<%= cookies[:from_date] %>"/>
+                    <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+                  </div>
                 </div>
-              <button type="button" class="btn btn-default" id="reset_btn">reset</button>
-                <button type="submit" class="btn btn-primary">show</button>
+              </div>
 
+                <div class='col-md-4 col-sm-12'>
+                  <div class="form-group">
+                    <div class='input-group date' id='datetimepicker7'>
+                      <span class="input-group-addon">To</span>
+                      <input type='text' class="form-control" name="to_date" id="to_date" value="<%= cookies[:to_date] %>"/>
+                      <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+                    </div>
+                  </div>
+              </div>
+              <!-- PER PAGE FORM -->
+
+                <div class='col-md-4 col-sm-12'>
+                  <div class="form-group">
+                    <div class="input-group">
+                      <span class="input-group-addon">per page</span>
+                      <input name="perpage" class="form-control" size="3" type='text' value="<%= cookies[:per_page] == '' ? @per_page : cookies[:per_page] %>"/>
+
+                          <span class="input-group-addon">
+                            <div class="btn-group btn-group-xs">
+                      <button type="button" class="btn btn-default" id="reset_btn">reset</button>
+                              </div>
+                            </span>
+                          <span class="input-group-addon">
+                            <div class="btn-group btn-group-xs">
+                      <button type="submit" class="btn btn-primary">show</button>
+                              </div>
+                        </span>
+
+
+                    </div>
+
+                    </div>
+                  </div>
+
+              <!--/end/ PER PAGE FORM -->
+              </div>
             </div>
-            <!--/end/ PER PAGE FORM -->
-          </div>
           </form>
         </div>
       </div>
