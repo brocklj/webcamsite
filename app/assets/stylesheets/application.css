@@ -54,7 +54,23 @@ body {
 }
 
 #streamContent {
-    margin-bottom: 20px;
+    margin-bottom: 5px;
+}
+#toggledown {
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.navbar-fixed-top .navbar-collapse, .navbar-fixed-bottom .navbar-collapse {
+    max-height: 570px;
 }
 
 
+.absolute-right {
+    position: static;
+    right: 0;
+}
+.absolute-left {
+    position: static;
+    left: 0;
+}

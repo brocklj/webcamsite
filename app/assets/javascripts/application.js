@@ -21,3 +21,29 @@ function errorimg_swap() {
     document.getElementById('livestream').alt = "http://90.179.18.233:999"
 }
 
+$(function(){
+   var a = $("#toggledown").on('click',function () {
+
+       if ($("#toggledown span").attr("data-arow") == "down"){
+
+           $("#toggledown span").attr("class", "glyphicon glyphicon-arrow-up");
+           $("#toggledown span").attr("data-arow", "up");
+
+       }
+       else {
+           $("#toggledown span").attr("class", "glyphicon glyphicon-arrow-down");
+           $("#toggledown span").attr("data-arow", "down");
+       }
+
+
+
+
+
+
+
+    });
+
+
+
+
+});

@@ -1,82 +1,91 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Menu colapse start -->
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="true" aria-controls="bs-example-navbar-collapse-1">
+      <span class="sr-only">Webcamsite</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
 
-<div class="container-fluid">
-  <div class="content">
-    <div class="row">
-        <a class="btn" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="streamContent" href="#streamContent" aria-label="Left Align">
-          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>Open Live</a>
-        <div class="well">
+  <!-- Menu colapse end -->
+
+    <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1" aria-expanded="true">
         <div class="collapse" id="streamContent">
+          <div class="content">
+          <img id="livestream" class="img-responsive-center" src="http://10.0.0.140:8081/" alt="http://10.0.0.140:8081/" onerror="errorimg_swap()">
+            </div>
+        </div>
+        <a class="btn btn-default"  role="button" data-toggle="collapse" aria-expanded="false" aria-controls="streamContent" href="#streamContent" id="toggledown" aria-label="Left Align">
+          <div class="glyphicon glyphicon-camera" aria-hidden="true"></div> Live <span class="glyphicon toggle-down glyphicon-arrow-down" data-arow="down" aria-hidden="true"></span></a>
 
-              <img id="livestream" src="http://10.0.0.140:8081/" alt="http://10.0.0.140:8081/" onerror="errorimg_swap()">
-
-         </div>
-
-        <div class="filters">
+        <div class="nav navbar-nav filters">
           <div id="temp"></div>
           <!-- filters form start -->
           <%= form_with(controller: :home) do |f| %>
-            <div class="container">
-              <div class="row">
+              <div class="container">
+                <div class="row">
 
-                <div class='col-md-4 col-sm-12'>
-                <div class="form-group">
-                  <div class='input-group date' id='datetimepicker6'>
-                    <span class="input-group-addon">From</span>
-                    <input type='text' class="form-control" name="from_date" id="from_date" value="<%= cookies[:from_date] %>"/>
-                    <span class="input-group-addon">
+                  <div class='col-md-4 col-sm-12'>
+                    <div class="form-group">
+                      <div class='input-group date' id='datetimepicker6'>
+                        <span class="input-group-addon">From</span>
+                        <input type='text' class="form-control" name="from_date" id="from_date" value="<%= cookies[:from_date] %>"/>
+                        <span class="input-group-addon">
                     <span class="glyphicon glyphicon-calendar"></span>
                 </span>
-                  </div>
-                </div>
-              </div>
-
-                <div class='col-md-4 col-sm-12'>
-                  <div class="form-group">
-                    <div class='input-group date' id='datetimepicker7'>
-                      <span class="input-group-addon">To</span>
-                      <input type='text' class="form-control" name="to_date" id="to_date" value="<%= cookies[:to_date] %>"/>
-                      <span class="input-group-addon">
-                      <span class="glyphicon glyphicon-calendar"></span>
-                  </span>
+                      </div>
                     </div>
                   </div>
-              </div>
-              <!-- PER PAGE FORM -->
 
-                <div class='col-md-4 col-sm-12'>
-                  <div class="form-group">
-                    <div class="input-group">
-                      <span class="input-group-addon">per page</span>
-                      <input name="perpage" class="form-control" size="3" type='text' value="<%= cookies[:per_page] == '' ? @per_page : cookies[:per_page] %>"/>
+                  <div class='col-md-4 col-sm-12'>
+                    <div class="form-group">
+                      <div class='input-group date' id='datetimepicker7'>
+                        <span class="input-group-addon">To</span>
+                        <input type='text' class="form-control" name="to_date" id="to_date" value="<%= cookies[:to_date] %>"/>
+                        <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- PER PAGE FORM -->
 
-                          <span class="input-group-addon">
+                  <div class='col-md-4 col-sm-12'>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <span class="input-group-addon">per page</span>
+                        <input name="perpage" class="form-control" size="3" type='text' value="<%= cookies[:per_page] == '' ? @per_page : cookies[:per_page] %>"/>
+
+                        <span class="input-group-addon">
                             <div class="btn-group btn-group-xs">
                       <button type="button" class="btn btn-default" id="reset_btn">reset</button>
                               </div>
                             </span>
-                          <span class="input-group-addon">
+                        <span class="input-group-addon">
                             <div class="btn-group btn-group-xs">
                       <button type="submit" class="btn btn-primary">show</button>
                               </div>
                         </span>
 
 
-                    </div>
+                      </div>
 
                     </div>
                   </div>
 
-              <!--/end/ PER PAGE FORM -->
-              </div>
-            </div>
-            <!-- filters form end -->
+                  <!--/end/ PER PAGE FORM -->
+                </div>
+                <!-- filters form end -->
           <% end %>
 
+          </div>
         </div>
-      </div>
-      </div>
     </div>
   </div>
+</nav>
+
+<div class="container-fluid">
   <hr>
   <div class="row">
     <%
