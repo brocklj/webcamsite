@@ -25,14 +25,14 @@ body {
     position: relative;
     float: left;
 }
-@media only screen and (max-width:989px){
+@media only screen and (max-width:989px) and (max-device-width: 898px){
 
     body {
         padding-top: 200px;
 
     }
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) and (max-device-width: 768px) {
     body {
         padding-top: 100px;
 
