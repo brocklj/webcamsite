@@ -1,5 +1,5 @@
-<nav aria-label="Page navigation" class="">
-  <ul class="pagination pagination-lg">
+<nav aria-label="Page navigation" class="navbar navbar-default navbar-fixed-bottom">
+  <ul class="pagination pagination-lg" style="margin: 0px">
     <% count = @images.count
        pages_count = (count / @per_page.to_f).ceil
        %>
@@ -24,7 +24,11 @@
     </li>
   </ul>
 </nav>
+<!--
+<nav>
 
-<%= link_to "<<", {:controller => "home", :action => "welcome", :imgpage => (@current_page - 1 if @current_page > 0)},:class => "affix-bottom", data: { turbolinks: false}, :method => :get if (pages_count > 1 and @current_page !=0) %>
+<%= link_to "<<", {:controller => "home", :action => "welcome", :imgpage => (@current_page - 1 if @current_page > 0)},:class => "left", data: { turbolinks: false}, :method => :get if (pages_count > 1 and @current_page !=0) %>
 
-<%= link_to ">>", {:controller => "home", :action => "welcome", :imgpage => (@current_page + 1)}, data: { turbolinks: false}, :class =>"affix-bottom", :method => :get if @current_page < pages_count-1 %>
+<%= link_to ">>", {:controller => "home", :action => "welcome", :imgpage => (@current_page + 1)}, data: { turbolinks: false}, :class =>"right", :method => :get if @current_page < pages_count-1 %>
+</nav>
+-->

@@ -16,18 +16,29 @@
  */
 
 body {
-    padding-top: 70px;
+    padding-top: 100px;
+    margin: 0 auto 0 auto;
+    text-align: center;
+    width: 100%;
 }
 .shoot {
     position: relative;
     float: left;
 }
+@media only screen and (max-width:989px){
 
-body {
-    margin: 0 auto 0 auto;
-    text-align: center;
-    width: 100%;
+    body {
+        padding-top: 200px;
+
+    }
 }
+@media only screen and (max-width: 768px) {
+    body {
+        padding-top: 100px;
+
+    }
+}
+
 .content {
     text-align: center;
 }
