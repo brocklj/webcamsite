@@ -1,4 +1,10 @@
 <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+  <div class="navbar-header">
+
+    <a class="navbar-brand" href="#">WebcamSite</a>
+  </div>
+  </div>
   <div class="container-fluid">
     <!-- Menu colapse start -->
     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="true" aria-controls="bs-example-navbar-collapse-1">
@@ -10,14 +16,8 @@
 
   <!-- Menu colapse end -->
 
-    <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1" aria-expanded="true">
-        <div class="collapse" id="streamContent">
-          <div class="content">
-          <img id="livestream" class="img-responsive-center" src="http://10.0.0.140:8081/" alt="http://10.0.0.140:8081/" onerror="errorimg_swap()">
-            </div>
-        </div>
-        <a class="btn btn-default"  role="button" data-toggle="collapse" aria-expanded="false" aria-controls="streamContent" href="#streamContent" id="toggledown" aria-label="Left Align">
-          <div class="glyphicon glyphicon-camera" aria-hidden="true"></div> Live <span class="glyphicon toggle-down glyphicon-arrow-down" data-arow="down" aria-hidden="true"></span></a>
+    <div class="navbar-md-collapse collapse" id="bs-example-navbar-collapse-1" aria-expanded="true">
+
 
         <div class="nav navbar-nav filters">
           <div id="temp"></div>
@@ -86,6 +86,13 @@
 </nav>
 
 <div class="container-fluid">
+  <div class="collapse" id="streamContent">
+    <div class="content">
+      <img id="livestream" class="img-responsive-center" src="http://10.0.0.140:8081/" alt="http://10.0.0.140:8081/" onerror="errorimg_swap()">
+    </div>
+  </div>
+  <a class="btn btn-default"  role="button" data-toggle="collapse" aria-expanded="false" aria-controls="streamContent" href="#streamContent" id="toggledown" aria-label="Left Align">
+    <div class="glyphicon glyphicon-camera" aria-hidden="true"></div> Live <span class="glyphicon toggle-down glyphicon-arrow-down" data-arow="down" aria-hidden="true"></span></a>
   <hr>
   <div class="row">
     <%
