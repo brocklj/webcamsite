@@ -22,6 +22,10 @@ function errorimg_swap() {
 }
 
 $(function(){
+    //var active = $("#active");
+    //var scroll = active.offset().right + (active.width() / 2);
+    //active.animate({scrollLeft: scroll});
+    location.hash = "#active";
    var a = $("#toggledown").on('click',function () {
 
        if ($("#toggledown span").attr("data-arow") == "down"){
@@ -34,6 +38,8 @@ $(function(){
            $("#toggledown span").attr("class", "glyphicon glyphicon-arrow-down");
            $("#toggledown span").attr("data-arow", "down");
        }
+
+
 
 
 

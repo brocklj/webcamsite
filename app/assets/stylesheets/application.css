@@ -98,3 +98,21 @@ body {
     position: static;
     left: 0;
 }
+
+.pagination {
+    white-space: nowrap;
+}
+
+#client-paginator {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    height: 50px;
+    width: 100%;
+    padding: 0 5px;
+    margin: 20px 0px 0px 0px;
+
+}
+
+#client-paginator li {
+    display: inline-block;
+}
