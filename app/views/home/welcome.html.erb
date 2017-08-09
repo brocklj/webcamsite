@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-top">
   <div class="container">
   <div class="navbar-header">
 
@@ -55,7 +55,7 @@
                     <div class="form-group">
                       <div class="input-group">
                         <span class="input-group-addon">per page</span>
-                        <input name="perpage" class="form-control" size="3" type='text' value="<%= cookies[:per_page] == '' ? @per_page : cookies[:per_page] %>"/>
+                        <input name="perpage" class="form-control" size="3" type='text' value="<%= cookies[:per_page] == nil ? @per_page.to_s : cookies[:per_page] %>"/>
 
                         <span class="input-group-addon">
                             <div class="btn-group btn-group-xs">
@@ -87,7 +87,7 @@
 
 <div class="container-fluid">
   <div class="collapse" id="streamContent">
-    <div class="content">
+    <div class="row">
       <img id="livestream" class="img-responsive-center" src="http://10.0.0.140:8081/" alt="http://10.0.0.140:8081/" onerror="errorimg_swap()">
     </div>
   </div>
@@ -95,6 +95,7 @@
     <div class="glyphicon glyphicon-camera" aria-hidden="true"></div> Live <span class="glyphicon toggle-down glyphicon-arrow-down" data-arow="down" aria-hidden="true"></span></a>
   <hr>
   <div class="row">
+
     <%
       post_page = 0
       @images.drop(@current_page*@per_page).each_with_index do |image, i|

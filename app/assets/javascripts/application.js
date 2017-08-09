@@ -39,13 +39,26 @@ $(function(){
            $("#toggledown span").attr("data-arow", "down");
        }
 
+    });
+
+    // Sticky navbar fixed or position
+    var $nav_header = $('.navbar-top');
+    $nav_height = $('.navbar-top').height();
+    $(window).scroll(function() {
+
+        var scrollTop = $(window).scrollTop();
+
+        if (scrollTop >= $nav_height) {
+            $nav_header.removeClass("navbar-top").addClass("navbar-fixed-top");
 
 
+        }
+        else {
+            $nav_header.removeClass("navbar-fixed-top");
+            $nav_header.addClass("navbar-top");
+            $nav_header.css("display","block");
 
-
-
-
-
+        }
 
     });
 
