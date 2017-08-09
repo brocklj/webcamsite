@@ -3,7 +3,7 @@
 %>
 <nav aria-label="Page navigation" class="navbar navbar-default navbar-fixed-bottom">
   <div class="row">
-  <div class="col-sm-2">
+  <div class="col-xs-2">
   <ul class="pagination">
     <li>
       <%= link_to "<< Previous", {:controller => "home", :action => "welcome", :imgpage => (@current_page - 1 if @current_page > 0)}, data: { turbolinks: false}, :method => :get if (pages_count > 1 and @current_page !=0) %>
@@ -12,7 +12,7 @@
 
   </ul>
   </div>
-  <div class="col-sm-8">
+  <div class="col-xs-8">
   <ul class="pagination" id="client-paginator">
 
     <li>
@@ -34,7 +34,7 @@
     </li>
   </ul>
     </div>
-    <div class="col-sm-2">
+    <div class="col-xs-2">
 
     <ul class="pagination">
     <li>

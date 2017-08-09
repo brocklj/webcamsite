@@ -16,11 +16,12 @@ var dateFromDef = new Date(dateToDef);
         });
         $("#datetimepicker6").on("dp.change", function (e) {
             $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+            $('#datetimepicker7').data("DateTimePicker").maxDate(dateToDef);
         });
         $("#datetimepicker7").on("dp.change", function (e) {
             $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
         });
-     $("#reset_btn").on('click', function () {
+       $("#reset_btn").on('click', function () {
        $('#datetimepicker6').data("DateTimePicker").date(new Date(dateFromDef));
        $('#datetimepicker7').data("DateTimePicker").date(new Date(dateToDef));
 
@@ -28,8 +29,6 @@ var dateFromDef = new Date(dateToDef);
 
        //$("#from_date").val(dateFromDef.getFullYear()+'-'+dateFromDef.getMonth()+'-'+dateFromDef.getDay());
        //$("#to_date").val(dateToDef.getFullYear()+'-'+dateToDef.getMonth()+'-'+dateToDef.getDay());
-
-
-
      });
+
     });
